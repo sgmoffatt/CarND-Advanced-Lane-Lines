@@ -16,13 +16,14 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/undistort_output.png "Undistorted"
-[image2]: ./test_images/test1.jpg "Road Transformed"
-[image3]: ./examples/binary_combo_example.jpg "Binary Example"
-[image4]: ./examples/warped_straight_lines.jpg "Warp Example"
-[image5]: ./examples/color_fit_lines.jpg "Fit Visual"
-[image6]: ./examples/example_output.jpg "Output"
-[video1]: ./project_video.mp4 "Video"
+[image1]:  ./camera_cal/calibration1.jpg "Distorted"
+[image2]:  ./output_images/calibration1-Corrected.png "Corrected"
+#[image2]: ./test_images/test1.jpg "Road Transformed"
+#[image3]: ./examples/binary_combo_example.jpg "Binary Example"
+#[image4]: ./examples/warped_straight_lines.jpg "Warp Example"
+#[image5]: ./examples/color_fit_lines.jpg "Fit Visual"
+#[image6]: ./examples/example_output.jpg "Output"
+#[video1]: ./project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
@@ -56,6 +57,7 @@ Camera Matrix:
  [  0.00000000e+00   0.00000000e+00   1.00000000e+00]]
 
 ![alt text][image1]
+![alt text][image2]
 
 ### Pipeline (single images)
 
