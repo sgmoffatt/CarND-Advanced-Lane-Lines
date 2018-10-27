@@ -56,7 +56,10 @@ Camera Matrix:
  [  0.00000000e+00   1.15282217e+03   3.86124583e+02]
  [  0.00000000e+00   0.00000000e+00   1.00000000e+00]]
 
+Distorted Baseline Image:
 ![alt text][image1]
+
+Corrected Image:
 ![alt text][image2]
 
 ### Pipeline (single images)
