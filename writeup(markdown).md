@@ -18,12 +18,8 @@ The goals / steps of this project are the following:
 
 [image1]:  ./camera_cal/calibration1.jpg "Distorted"
 [image2]:  ./output_images/calibration1-corrected.jpg "Corrected"
-#[image2]: ./test_images/test1.jpg "Road Transformed"
-#[image3]: ./examples/binary_combo_example.jpg "Binary Example"
-#[image4]: ./examples/warped_straight_lines.jpg "Warp Example"
-#[image5]: ./examples/color_fit_lines.jpg "Fit Visual"
-#[image6]: ./examples/example_output.jpg "Output"
-#[video1]: ./project_video.mp4 "Video"
+[image3]:  ./test_images/test5.jpg "Distorted"
+[image4]:  ./output_images/test5-corrected.jpg "Corrected"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
@@ -67,13 +63,17 @@ Camera Matrix:
 #### 1. Provide an example of a distortion-corrected image.
 
 To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one:
-![alt text][image2]
+
+**Distorted Baseline Image** 
+![alt text][image3]
+
+**Corrected Image** 
+![alt text][image4]
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
 I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines # through # in `another_file.py`).  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
 
-![alt text][image3]
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
@@ -103,13 +103,13 @@ This resulted in the following source and destination points:
 
 I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
-![alt text][image4]
+
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
 Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
 
-![alt text][image5]
+
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
@@ -119,7 +119,7 @@ I did this in lines # through # in my code in `my_other_file.py`
 
 I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
 
-![alt text][image6]
+
 
 ---
 
@@ -136,3 +136,4 @@ Here's a [link to my video result](./project_video.mp4)
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
 Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+2
