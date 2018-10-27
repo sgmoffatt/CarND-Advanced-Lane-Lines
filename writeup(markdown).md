@@ -18,8 +18,8 @@ The goals / steps of this project are the following:
 
 [image1]:  ./camera_cal/calibration1.jpg "Distorted"
 [image2]:  ./output_images/calibration1-corrected.jpg "Corrected"
-[image3]:  ./test_images/test5.jpg "Distorted"
-[image4]:  ./output_images/test5-corrected.jpg "Corrected"
+[image3]:  ./test_images/test6.jpg "Distorted"
+[image4]:  ./output_images/test6-corrected.jpg "Corrected"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
