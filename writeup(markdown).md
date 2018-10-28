@@ -22,7 +22,7 @@ The goals / steps of this project are the following:
 [image4]:  ./output_images/test6-corrected.jpg "Corrected"
 [image5]:  ./output_images/test5-binary.jpg "Binary Example"
 [image6]:  ./output_images/test7-corrected.jpg "Corrected"
-[image7]:  ./output_images/test7-corrected-bird.jpg "Birds Eye"
+[image7]:  ./output_images/test7-corrected-bird-lines.jpg "Birds Eye"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
@@ -82,7 +82,7 @@ I first converted the image RGB color space to HLS and extracted the more robust
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
-The code for my perspective transform includes a function called `perspective()` in the 2nd code cell of the IPython notebook P2_master.ipnynb.  The `perspective()` function takes as inputs an image (`img`), as well as manually selected source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner.  Important to note is my original set of points didn't transform well from 1). taking the center point of the line and from 2) selecting to close to the center of the image.  I found there was a lot of line distortion towards the middle from picking a points along the center and where the pixels weren't perfectly contrasted.  
+The code for my perspective transform includes a function called `perspective()` in the 2nd code cell of the IPython notebook P2_master.ipnynb.  The `perspective()` function takes as inputs an image (`img`), as well as manually selected source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner.  Important to note is my original set of points didn't transform well from 1). taking the center point of the line and from 2) selecting to close to the center of the image.  I found there was a lot of line distortion towards the middle from picking a points along the center and where the pixels weren't perfectly contrasted. The image presented was transformed from the outer edge of the forward position of the image and the inside of the center lines at the center.   
 
 | Source        | Destination   | 
 |:-------------:|:-------------:| 
