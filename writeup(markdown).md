@@ -20,6 +20,7 @@ The goals / steps of this project are the following:
 [image2]:  ./output_images/calibration1-corrected.jpg "Corrected"
 [image3]:  ./test_images/test6.jpg "Distorted"
 [image4]:  ./output_images/test6-corrected.jpg "Corrected"
+[image5]:  ./output_images/test5-binary.jpg "Binary Example"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
@@ -72,8 +73,12 @@ To demonstrate this step, I will describe how I apply the distortion correction 
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
-I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines # through # in `another_file.py`).  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
+I first converted the image RGB color space to HLS and extracted the more robust S channel (lighting, color). I then ran the sobel derivative on the x-axis (horozontal) to pick out the, close to, vertical lane lines.  Finally, I aggregated the sobel revealed edges with threholded values for the saturation color channel into a combined value and exported.  
 
+to used a combination of color and gradient thresholds to generate a binary image (thresholding steps in Pipeline() located in `P2_master.ipynb`).  Here's an example of my output for this step. 
+
+**Image "test5.jpg" Example Binary** 
+![alt text][image5]
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
