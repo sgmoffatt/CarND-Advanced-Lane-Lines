@@ -21,6 +21,8 @@ The goals / steps of this project are the following:
 [image3]:  ./test_images/test6.jpg "Distorted"
 [image4]:  ./output_images/test6-corrected.jpg "Corrected"
 [image5]:  ./output_images/test5-binary.jpg "Binary Example"
+[image6]:  ./output_images/test7-corrected.jpg "Corrected"
+[image7]:  ./output_images/test7-corrected-bird.jpg "Birds Eye"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
@@ -106,7 +108,11 @@ This resulted in the following source and destination points:
 
 I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
+**Image "straight_lines1.jpg" (test7.jpg) Corrected** 
+![alt text][image6]
 
+**Image "straight_lines1.jpg" (test7.jpg) Bird's Eye**
+![alt text][image7]
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
