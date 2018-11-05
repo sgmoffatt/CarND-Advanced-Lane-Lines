@@ -2,6 +2,7 @@
 ---
 
 **Advanced Lane Finding Project**
+**Steven Moffatt - November 11, 2018**
 
 The goals / steps of this project are the following:
 
@@ -23,6 +24,10 @@ The goals / steps of this project are the following:
 [image5]:  ./output_images/test5-binary.jpg "Binary Example"
 [image6]:  ./output_images/test7-corrected.jpg "Corrected"
 [image7]:  ./output_images/test7-corrected-bird-lines.jpg "Birds Eye"
+[image8]:  ./output_images/test6-corrected-bird-binary-curve.jpg "Line Plot"
+[image9]:  ./output_images/test7-corrected-bird-lines.jpg "Birds Eye"
+[image10]:  ./output_images/test7-corrected-bird-lines.jpg "Birds Eye"
+
 
 [video1]: ./output_video/P2_video_out.mp4 "Project Video"
 [video2]: ./output_video/P2_challenge_video_out.mp4 "Challenge Video"
@@ -103,9 +108,16 @@ I verified that my perspective transform was working as expected by drawing the 
 ![alt text][image7]
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
+A multi-step process was used to identify and fit curves to the observed lanes:
+1). Lane-line pixels were found using the sliding windows technique used in the lesson.  This can be found in the 'find_lane_pixels()' function that is called from the 'fit_polynomial()' function. 
+2). Both left and right lanes were then fit to a two-degree polynomial through 'np.polyfit()' and assemblyed into an array 'left_fitx' and 'right_fitx' such that mapping could be done to warp the lines between front and perspective views.
+3). The lane-line pixels identified were then colored blue and red for observable confirmation.
+4). A mask was then created to display the area bounded by the polynomial lane descriptions in green for observable conformation and muted using 'cv2.addWeighted' so to allow some transparency. 
 
-Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
+A plot of the lane curvatuve and blue and red colored lines is shown below for 'test5' image:
 
+**Image test6.jpg Line Plot**
+![alt text][image8]
 
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
@@ -122,10 +134,12 @@ I implemented this step in lines # through # in my code in `yet_another_file.py`
 
 ### Pipeline (video)
 
-#### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
+#### 1. Provide a link to your final video output.  The video shows clear lane line finding robustness and the curvature values and offset are stable throughout the entire video.  I've included my challenge video attempt with the same code as the project video. The shawdows throw the challenge result off as well as neighboring cars.
 
 Here's a [link to my video result][video1]
+
 Here's a [link to my challenge video attempt][video2]
+
 ---
 
 ### Discussion
@@ -134,3 +148,16 @@ Here's a [link to my challenge video attempt][video2]
 
 Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
 2
+
+### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
+
+### 2. Identify potential shortcomings with your current pipeline
+
+
+Potential shortcomings include (would be what would happen when): 
+
+### 3. Suggest possible improvements to your pipeline
+
+Possible improvements include:
+
+  1). It's super awkward to process hough lines in pol
