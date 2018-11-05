@@ -25,8 +25,7 @@ The goals / steps of this project are the following:
 [image6]:  ./output_images/test7-corrected.jpg "Corrected"
 [image7]:  ./output_images/test7-corrected-bird-lines.jpg "Birds Eye"
 [image8]:  ./output_images/test6-corrected-bird-binary-curve.jpg "Line Plot"
-[image9]:  ./output_images/test7-corrected-bird-lines.jpg "Birds Eye"
-[image10]:  ./output_images/test7-corrected-bird-lines.jpg "Birds Eye"
+[image9]:  ./output_images/test6-overlay.jpg "Overlayed Result"
 
 
 [video1]: ./output_video/P2_video_out.mp4 "Project Video"
@@ -109,9 +108,13 @@ I verified that my perspective transform was working as expected by drawing the 
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 A multi-step process was used to identify and fit curves to the observed lanes:
+
 1). Lane-line pixels were found using the sliding windows technique used in the lesson.  This can be found in the 'find_lane_pixels()' function that is called from the 'fit_polynomial()' function. 
+
 2). Both left and right lanes were then fit to a two-degree polynomial through 'np.polyfit()' and assemblyed into an array 'left_fitx' and 'right_fitx' such that mapping could be done to warp the lines between front and perspective views.
+
 3). The lane-line pixels identified were then colored blue and red for observable confirmation.
+
 4). A mask was then created to display the area bounded by the polynomial lane descriptions in green for observable conformation and muted using 'cv2.addWeighted' so to allow some transparency. 
 
 A plot of the lane curvatuve and blue and red colored lines is shown below for 'test6' image:
@@ -123,15 +126,26 @@ A plot of the lane curvatuve and blue and red colored lines is shown below for '
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
 I measured the radius of curvature and position offset of the vehicle by doing the following in 'measure_curvature_pixels()':
+
 1). Measured scale factors from images and applied the 30m length and 3.7m lane width recommendation.
+
 2). Defined the center of the image as the mid-point of the image x dimension and calculated the center of the lane by using the x position of the 'left_fitx' and 'right_fitx' array by averaging them.  Applying the x factor and comparing the these two numbers gave a physical offset.  The positive difference was used to define a 'right of' center condition and a negative value a 'left of' center condition. 
+
 3).  The radius of curvature was calculated by using the formulas presented in the lesson, X as a function of Y, for both left and right lines.  'y_eval' was used as the scaling variable and the 0 and 1 indexs from the polynomial fit functional were used to determine A and B. These results were then averaged together, neglecting the 3.7m offset of the radii. Rcurve=(1+(2Ay+B)^2)^(3/2) / ∣2A∣. 
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
-I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
+I implemented this step in the main pipeline of 'P2.ipynb' by the following steps:
 
+1). Took the Bird's Eye transform with colored lane pixels and green lane boundaries and sent to cv2.warpPerspective() with the original transform matrix and with the argument 'flags=cv2.WARP_INVERSE_MAP' to invert the image using the same matrix.
 
+2). I then overlayed the unwarped colored mask (above) and overlayed onto the base corrected image using 'cv2.addWeighted()'.
+
+3). Finally I used 'cv2.putText()' to add the Radius of Curvaturve data and Offset data to the image.  
+
+**Image test6.jpg Unwarped and Overlayed Result**
+
+![alt text][image9]
 
 ---
 
