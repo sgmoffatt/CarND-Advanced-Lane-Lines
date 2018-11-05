@@ -182,5 +182,6 @@ Potential shortcomings include (would be what would happen when):
 Possible improvements include:
 
 1). See 2.1. 
+
 2). I didn't include the Search from Prior technique from earlier that may help to stabilize outliers revealed in the challenge problem.
 
