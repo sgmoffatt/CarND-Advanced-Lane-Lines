@@ -24,6 +24,9 @@ The goals / steps of this project are the following:
 [image6]:  ./output_images/test7-corrected.jpg "Corrected"
 [image7]:  ./output_images/test7-corrected-bird-lines.jpg "Birds Eye"
 
+[video1]: ./output_video/P2_video_out.mp4 "Project Video"
+[video2]: ./output_video/P2_challenge_video_out.mp4 "Challenge Video"
+
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
@@ -121,8 +124,8 @@ I implemented this step in lines # through # in my code in `yet_another_file.py`
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
-Here's a [link to my video result](./project_video.mp4)
-
+Here's a [link to my video result][video1]
+Here's a [link to my challenge video attempt][video2]
 ---
 
 ### Discussion
