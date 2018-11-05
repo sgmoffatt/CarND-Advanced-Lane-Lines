@@ -161,20 +161,26 @@ Here's a [link to my challenge video attempt][video2]
 
 ### Discussion
 
-#### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
+#### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
-2
+The pipeline had the most diffulty with the following in order of impact:
 
-### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
+1). Dark pixels with high saturation values (included - false positive) and white pixels with low saturation (excluded - false negative).  Was able to correct for it, building two edge cases into the s_channel algorithm.  1). If lightness >200 in any pixel, then it is included with a 'bitwise_or()' operation. 2). If saturation threshold is met and the lightness is less than 50, then ignore that pixel through a 'bitwise_and()' operation.
 
-### 2. Identify potential shortcomings with your current pipeline
+2). Points used for the perspective transform.  The points I measured for the transform seemed to be more accurate then what was included in the sample write-up, but it seemed to distort the lines in a way that wasn't consistent with curvature.  I ended up using the points in the sample write-up.  
 
+3). The integration of the line polynomial with the y range into a one-dimensional array of coordinates, I found quite difficult with stacking and transposing.  This wasn't introduced in the curriculum, but I eventually figure it out.  
+
+### 2. Identify potential shortcomings with your current pipeline, i.e. where will your pipeline likely fail?
 
 Potential shortcomings include (would be what would happen when): 
 
-### 3. Suggest possible improvements to your pipeline
+1). From the challenge video example, a crisp shadow from the median introduces a separate consistent line formation.  In this situation a decision needs to be made about which line is actually a lane line and should involve both improved thresholding and multiple lane curves that can be evaluated for symmetry.  
+
+### 3. Suggest possible improvements to your pipeline, i.e. what could you do to make it more robust?
 
 Possible improvements include:
 
-  1). It's super awkward to process hough lines in pol
+1). See 2.1. 
+2). I didn't include the Search from Prior technique from earlier that may help to stabilize outliers revealed in the challenge problem.
+
