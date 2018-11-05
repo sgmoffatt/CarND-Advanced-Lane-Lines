@@ -114,15 +114,18 @@ A multi-step process was used to identify and fit curves to the observed lanes:
 3). The lane-line pixels identified were then colored blue and red for observable confirmation.
 4). A mask was then created to display the area bounded by the polynomial lane descriptions in green for observable conformation and muted using 'cv2.addWeighted' so to allow some transparency. 
 
-A plot of the lane curvatuve and blue and red colored lines is shown below for 'test5' image:
+A plot of the lane curvatuve and blue and red colored lines is shown below for 'test6' image:
 
-**Image test6.jpg Line Plot**
+**Image test6.jpg Bird's Eye Line Plot**
+
 ![alt text][image8]
-
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
-I did this in lines # through # in my code in `my_other_file.py`
+I measured the radius of curvature and position offset of the vehicle by doing the following in 'measure_curvature_pixels()':
+1). Measured scale factors from images and applied the 30m length and 3.7m lane width recommendation.
+2). Defined the center of the image as the mid-point of the image x dimension and calculated the center of the lane by using the x position of the 'left_fitx' and 'right_fitx' array by averaging them.  Applying the x factor and comparing the these two numbers gave a physical offset.  The positive difference was used to define a 'right of' center condition and a negative value a 'left of' center condition. 
+3).  The radius of curvature was calculated by using the formulas presented in the lesson, X as a function of Y, for both left and right lines.  'y_eval' was used as the scaling variable and the 0 and 1 indexs from the polynomial fit functional were used to determine A and B. These results were then averaged together, neglecting the 3.7m offset of the radii. Rcurve=(1+(2Ay+B)^2)^(3/2) / ∣2A∣. 
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
